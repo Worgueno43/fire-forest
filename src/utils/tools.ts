@@ -9,6 +9,8 @@ export const defaultGrid = (
   grid: GridSize,
   firePosition: FirePosition[]
 ): Case[][] => {
+  if (grid.hauteur === 0 || grid.largeur === 0) return [];
+
   const gridArray: Case[][] = [];
 
   // Création de la grille avec les cases par défaut en "forest"
@@ -34,6 +36,9 @@ export const firePropagation = (
   grid: Case[][],
   probability: number
 ): FirePropagationReturn => {
+  if (grid.length === 0 || grid[0]!.length === 0)
+    return { updatedGrid: [], numberOfFires: 0 };
+
   const height = grid.length;
   const width = grid[0]!.length;
 
