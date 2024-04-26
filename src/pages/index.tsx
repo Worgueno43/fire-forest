@@ -33,6 +33,11 @@ export default function Home() {
     }, 1000);
   }, [fireFinish, gridDisplay]);
 
+  const replayFireSpreading = () => {
+    setGridDisplay(defaultGrid(grid, defaultFirePosition));
+    setFireFinish(false);
+  };
+
   return (
     <>
       <Head>
@@ -42,11 +47,23 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col bg-main h-[100vh] items-center justify-center">
-        <h1 className="text-3xl font-bold text-center p-4 fixed top-0">
+        <h1 className="text-3xl font-bold text-center p-4 fixed top-0 text-forest">
           Fire Forest Simulation
         </h1>
 
         {gridDisplay && <Grid grid={gridDisplay} />}
+
+        {fireFinish && (
+          <div className="mt-2 flex items-center justify-center flex-col">
+            <p className="text-xl">Fire spreading ended !</p>
+            <button
+              className="bg-fire p-2 rounded"
+              onClick={replayFireSpreading}
+            >
+              Replay
+            </button>
+          </div>
+        )}
       </main>
     </>
   );

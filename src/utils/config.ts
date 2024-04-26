@@ -11,6 +11,10 @@ const defaultFirePosition: FirePosition[] = [
   {
     x: 2,
     y: 4
+  },
+  {
+    x: 4,
+    y: 2
   }
 ];
 
