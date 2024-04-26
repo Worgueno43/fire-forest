@@ -5,7 +5,7 @@ import "~/styles/globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-sans"
 });
 
 const MyApp: AppType = ({ Component, pageProps }) => {
